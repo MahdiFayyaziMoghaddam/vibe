@@ -23,7 +23,7 @@ export default function Table({
 }: ITableProps) {
   return (
     <table
-      className={`*:border-1 *:border-dark-400/70 backdrop-blur-xl ${className}`}
+      className={`*:border-[1.8px] *:border-dark-400/70 backdrop-blur-xl ${className}`}
     >
       {/* <thead>
         <tr>
