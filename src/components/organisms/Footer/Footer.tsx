@@ -22,10 +22,10 @@ export default function Footer() {
   return (
     <>
       {/* {isShowImportModal ? <URLImportModal /> : null} */}
-      <div className="flex justify-between items-center bg-dark-800 border-t-1 border-t-dark-400 py-[0.6rem] shrink-0 px-7 max-md:px-3 max-sm:px-1">
+      <div className="relative flex justify-center items-center bg-dark-800 border-t-1 border-t-dark-400 py-[0.6rem] shrink-0">
         <Button
           variant="icon"
-          className="hover:bg-dark-400/30! cursor-pointer rounded-md p-1.5! max-lg:p-[5px]! max-md:p-[3px]!"
+          className="absolute left-7 max-md:left-3 max-sm:left-1 hover:bg-dark-400/30! cursor-pointer rounded-md p-1.5! max-lg:p-[5px]! max-md:p-[3px]!"
           title={music?.title || "Music Title"}
         >
           <div
@@ -95,7 +95,7 @@ export default function Footer() {
             <Volume />
           </div>
         </div>
-        <div className="flex justify-end w-auto">
+        <div className="absolute right-7 max-md:right-3 max-sm:right-1 flex justify-end w-auto">
           <Menu
             className="mb-2 -mr-8 w-auto! text-[1.1rem] max-lg:text-[0.9rem] max-lg:-mr-8 max-md:text-[0.7rem] max-md:-mr-2 max-sm:text-[0.5rem] max-sm:-mr-0 max-sm:mb-1"
             items={[
