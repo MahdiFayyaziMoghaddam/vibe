@@ -1,4 +1,4 @@
-import { State } from "@/app/page";
+import { State } from "@/app/stream/page";
 import Button from "@/components/atoms/Button/Button";
 import Slider from "@/components/atoms/Slider/Slider";
 import MusicCard from "@/components/molecules/Card/MusicCard";

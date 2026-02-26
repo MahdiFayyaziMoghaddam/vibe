@@ -1,4 +1,4 @@
-import React, {
+import {
   Dispatch,
   SetStateAction,
   useCallback,
@@ -9,7 +9,7 @@ import PlayingView from "../PlayingView/PlayingView";
 import Button from "@/components/atoms/Button/Button";
 import Table from "@/components/molecules/Table/Table";
 import Controls from "../Controls";
-import TableLibraryRow from "@/components/molecules/Table/TableLibraryRow";
+import TableRow from "@/components/molecules/Table/TableRow";
 import { io, Socket } from "socket.io-client";
 import getAudioMetadata from "@/utils/getAudioMetadata";
 import { useAppState } from "@/contexts/StateContext";
@@ -125,7 +125,7 @@ export default function Owner({
                 </>
               }
               rows={s.allMusics.map((music, index) => (
-                <TableLibraryRow
+                <TableRow
                   id={music.id}
                   key={music.id}
                   duration={music.duration}

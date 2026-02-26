@@ -24,7 +24,7 @@ interface ITableRowProps {
   selected?: boolean;
 }
 
-function TableLibraryRow({
+function TableRow({
   id,
   title,
   album = "",
@@ -172,4 +172,4 @@ function TableLibraryRow({
   );
 }
 
-export default memo(TableLibraryRow);
+export default memo(TableRow);

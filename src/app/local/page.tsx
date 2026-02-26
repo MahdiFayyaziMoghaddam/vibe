@@ -1,6 +1,6 @@
 "use client";
 import Table from "@/components/molecules/Table/Table";
-import TableLibraryRow from "@/components/molecules/Table/TableLibraryRow";
+import TableRow from "@/components/molecules/Table/TableRow";
 import { useAppState } from "@/contexts/StateContext";
 
 export default function Local() {
@@ -22,7 +22,7 @@ export default function Local() {
           </>
         }
         rows={state.allMusics.map((music, index) => (
-          <TableLibraryRow
+          <TableRow
             id={music.id}
             key={music.id}
             duration={music.duration}
