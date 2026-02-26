@@ -8,17 +8,18 @@ interface ILike {
   locked?: boolean;
 }
 
-const Like = memo(({ 
-  className = "",
-  onClick = () => null,
-  favored = false,
-  locked = false,
-}: ILike) => {
-  const [isHeartFilled, setIsHeartFilled] = useState(favored);
+const Like = memo(
+  ({
+    className = "",
+    onClick = () => null,
+    favored = false,
+    locked = false,
+  }: ILike) => {
+    const [isHeartFilled, setIsHeartFilled] = useState(favored);
 
-  return (
-    <div
-      className={`
+    return (
+      <div
+        className={`
         relative
         transition-transform
         duration-200
@@ -26,37 +27,38 @@ const Like = memo(({
         ${!locked ? "cursor-pointer" : "cursor-not-allowed"}
         ${className}
       `}
-      onClick={() => {
-        if (!locked) {
-          setIsHeartFilled((prev) => !prev);
-          onClick();
-        }
-      }}
-    >
-      <div
-        className={`
+        onClick={() => {
+          if (!locked) {
+            setIsHeartFilled((prev) => !prev);
+            onClick();
+          }
+        }}
+      >
+        <div
+          className={`
           absolute
           transition-all
           duration-300
           ${isHeartFilled ? "scale-100 opacity-100" : "scale-0 opacity-0"}
           text-primary
         `}
-      >
-        <IoMdHeart />
-      </div>
-      <div
-        className={`
+        >
+          <IoMdHeart />
+        </div>
+        <div
+          className={`
           transition-all
           duration-300
           ${isHeartFilled ? "scale-0 opacity-0" : "scale-100 opacity-100"}
           text-dark-300
         `}
-      >
-        <IoMdHeartEmpty />
+        >
+          <IoMdHeartEmpty />
+        </div>
       </div>
-    </div>
-  );
-});
+    );
+  },
+);
 
 Like.displayName = "Like";
 

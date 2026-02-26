@@ -8,7 +8,7 @@ export default function Shuffle() {
   return (
     <Button
       variant="icon"
-      className={`rounded-sm! p-1! max-md:p-0.5! *:text-xl max-md:*:text-lg max-sm:*:text-sm ${
+      className={`rounded-sm! p-1! max-md:p-0.5! *:text-[1.4rem] max-lg:*:text-[1.35rem] max-md:*:text-lg ${
         state.shuffle ? "text-primary" : ""
       }`}
       title={`Shuffle ${state.shuffle ? "on" : "off"}`}

@@ -8,3 +8,14 @@ export interface AudioMetadata {
   url: string;
   size: string;
 }
+
+export interface OptionalAudioMetadata {
+  id: number;
+  title?: string;
+  artists?: string;
+  album?: string;
+  duration?: number;
+  image?: string;
+  url?: string;
+  size?: string;
+}

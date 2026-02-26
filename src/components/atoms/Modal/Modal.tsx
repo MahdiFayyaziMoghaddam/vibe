@@ -27,7 +27,7 @@ export default function Modal({
           controller.abort();
         }
       },
-      { signal: controller.signal }
+      { signal: controller.signal },
     );
     return () => controller.abort();
   }, []);

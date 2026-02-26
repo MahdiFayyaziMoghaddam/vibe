@@ -29,9 +29,9 @@ export default function PlaylistCard({
             href={`/playlists${href}`}
             className="text-dark-200 text-[0.9rem]! max-lg:text-[0.85rem]! max-md:text-[0.8rem]!"
           >
-            <Tooltip title={title} placement="topLeft">
-              {title}
-            </Tooltip>
+            {/* <Tooltip title={title} placement="topLeft"> */}
+            {title}
+            {/* </Tooltip> */}
           </Link>
           <p className="text-dark-300 text-[0.7rem] max-lg:text-[0.65rem] max-md:text-[0.6rem] mt-1">
             Created by {creator} , 15 songs

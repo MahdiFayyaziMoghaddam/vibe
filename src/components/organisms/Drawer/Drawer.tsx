@@ -41,15 +41,15 @@ function Drawer({ onClose, open }: IDrawerProps) {
     >
       <CloseButton onClick={onClose} />
 
-      <Logo className="py-4 border-b-dark-400 border-b-1 scale-90 w-full" />
+      <Logo className="py-4 border-b-dark-200 border-b-1 scale-90 w-full" />
 
       <div className="flex flex-col px-8 py-5 gap-5 max-h-50">
-        <DrawerItem
+        {/* <DrawerItem
           href="/"
           icon={<MdLibraryMusic />}
           title="Library"
           onClose={onClose}
-        />
+        /> */}
         {/* <DrawerItem
           href="/playlists"
           icon={<RiPlayList2Fill />}

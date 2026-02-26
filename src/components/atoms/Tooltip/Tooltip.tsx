@@ -51,14 +51,14 @@ const Tooltip = memo(
         placement={placement}
         mouseEnterDelay={0.5}
         mouseLeaveDelay={0.01}
-        destroyTooltipOnHide={true}
+        destroyOnHidden={true}
         arrow={false}
-        styles={{ body: { ...tooltipStyles } as CSSProperties }}
+        styles={{ container: { ...tooltipStyles } as CSSProperties }}
         {...props}
       >
         {children}
       </T>
     );
-  }
+  },
 );
 export default Tooltip;

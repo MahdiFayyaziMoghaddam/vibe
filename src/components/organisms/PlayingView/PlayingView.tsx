@@ -1,42 +1,37 @@
 "use client";
-import React, { useState } from "react";
+import { useHotkey } from "@tanstack/react-hotkeys";
 import Image from "../../atoms/Image/Image";
-import Tooltip from "../../atoms/Tooltip/Tooltip";
-import Button from "../../atoms/Button/Button";
-import { MdPreview } from "react-icons/md";
-import { IoMdTrash } from "react-icons/io";
 import { useAppState } from "@/contexts/StateContext";
 
 export default function PlayingView() {
-  const [isShowPlayingView, setIsShowPlayingView] = useState(false);
-  const toggleShowPlayingView = () => setIsShowPlayingView((prev) => !prev);
-  const { state } = useAppState();
-  const currentMusic = state.allMusics[state.musicIndex];
+  const { state, dispatch } = useAppState();
+  useHotkey("Escape", () => dispatch({ type: "CLOSE_PLAYING_VIEW" }));
+  const currentMusic = state.allMusics.find(
+    (music) => music.id === state.musicID,
+  );
   const nextMusic =
     state.allMusics[
-      state.allMusics.length - 1 === state.musicIndex ? 0 : state.musicIndex + 1
+      state.allMusics[state.allMusics.length - 1]?.id === state.musicID
+        ? 0
+        : state.allMusics.findIndex((music) => music.id === state.musicID) + 1
     ];
   return (
     <>
-      <Tooltip
+      {/* <Button
+        variant="primary"
         title={`${isShowPlayingView ? "Close" : "Open"} Playing View`}
-        placement="bottomLeft"
+        className={`absolute z-50 top-1 right-1 p-0.5! *:text-xl hover:opacity-100 active:opacity-100 duration-250! shadow-2xs shadow-dark-700 ${
+          isShowPlayingView ? "opacity-30" : ""
+        }`}
+        onClick={toggleShowPlayingView}
       >
-        <Button
-          variant="primary"
-          className={`absolute z-50 top-1 right-1 p-0.5! *:text-xl hover:opacity-100 active:opacity-100 duration-250! ${
-            isShowPlayingView ? "opacity-30" : ""
-          }`}
-          onClick={toggleShowPlayingView}
-        >
-          <MdPreview />
-        </Button>
-      </Tooltip>
+        <MdPreview />
+      </Button> */}
 
       {/* Playing View */}
       <div
-        className={`h-full bg-dark-800 border-l-1 border-l-dark-400 overflow-y-auto z-40 scrollbar-hidden transition-all ${
-          !isShowPlayingView ? "-mr-91" : ""
+        className={`fixed h-full bg-dark-800 border-l-1 border-l-dark-400 overflow-y-auto z-40 scrollbar-hidden max-md:hidden transition-all ${
+          !state.showPlayingView ? "-right-[361px]" : "right-0"
         }`}
       >
         <div className="relative size-90! max-sm:size-70! border-b-1 border-b-dark-400 overflow-hidden ">
@@ -88,11 +83,11 @@ export default function PlayingView() {
                   </p>
                 </div>
               </div>
-              <Tooltip title={"Remove from queue"} placement="topRight">
+              {/* <Tooltip title={"Remove from queue"} placement="topRight">
                 <Button variant="primary" className="p-1! mr-2.5">
                   <IoMdTrash />
                 </Button>
-              </Tooltip>
+              </Tooltip> */}
             </div>
           </div>
         ) : null}

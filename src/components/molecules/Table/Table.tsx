@@ -23,7 +23,7 @@ export default function Table({
 }: ITableProps) {
   return (
     <table
-      className={`*:border-[1.8px] *:border-dark-400/70 backdrop-blur-xl ${className}`}
+      className={`*:border-[1.8px] max-md:*:border-none *:border-dark-400/70 backdrop-blur-xl ${className}`}
     >
       {/* <thead>
         <tr>
@@ -56,7 +56,7 @@ export default function Table({
       </thead> */}
       <thead>
         <tr
-          className={`*:border-b-0 max-sm:**:text-[0.5rem] px-5 *:py-1 text-dark-300 select-none ${className}`}
+          className={`*:border-b-0 max-sm:**:text-[0.7rem] max-md:first:*:px-2 max-md:outline-1! max-md:outline-dark-400! max-md:z-10 max-md:bg-dark-800 *:py-1 text-dark-300 select-none ${className}`}
         >
           {columns}
         </tr>

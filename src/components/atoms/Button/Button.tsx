@@ -3,7 +3,13 @@ import { useRouter } from "next/navigation";
 import { memo, useMemo, useCallback, HTMLAttributes, ReactNode } from "react";
 
 interface IButtonProps {
-  variant: "primary" | "dark" | "icon" | "gray";
+  variant:
+    | "primary"
+    | "dark"
+    | "icon"
+    | "gray"
+    | "primary-outline"
+    | "gray-outline";
   children?: ReactNode;
   className?: string;
   onClick?: () => void;
@@ -26,12 +32,16 @@ const Button = memo(function Button({
     switch (variant) {
       case "primary":
         return "bg-gradient-to-b from-primary via-secondary to-secondary text-dark-100 py-[0.25em] px-[1.2em] rounded-[0.3em] border-1 border-primary hover:opacity-75";
+      case "primary-outline":
+        return "bg-primary/50 text-dark-100 py-[0.25em] px-[1.2em] rounded-[0.3em] border-2! border-primary hover:opacity-75";
       case "dark":
         return "bg-gradient-to-t from-dark-800 via-dark-800 to-dark-500 text-dark-200 py-[0.25em] px-[1.2em] rounded-[0.3em] border-dark-300/70 border-1 hover:opacity-75";
       case "gray":
         return "bg-linear-180 from-dark-400 to-dark-600 border-1 text-dark-200 py-[0.25em] px-[1.2em] rounded-[0.3em] border-dark-400 border-1 hover:opacity-75";
+      case "gray-outline":
+        return "border-dark-300! border-2 bg-dark-500/80! text-dark-200 py-[0.25em] px-[1.2em] rounded-[0.3em] border-dark-400 border-1 hover:opacity-75";
       case "icon":
-        return "rounded-full p-[0.35em] hover:bg-dark-400/60 text-dark-200";
+        return "rounded-full p-[0.35em] hover:bg-dark-300/30 text-dark-200";
     }
   }, [variant]);
 

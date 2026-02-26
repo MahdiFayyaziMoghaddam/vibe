@@ -1,24 +1,20 @@
 "use client";
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import Navbar from "@/components/organisms/Navbar/Navbar";
-import Footer from "@/components/organisms/Footer/Footer";
-import { isPrivateRoute } from "@/utils/privateRoutes";
+import Controls from "@/components/organisms/Controls";
 import { usePathname } from "next/navigation";
+import PlayingView from "@/components/organisms/PlayingView/PlayingView";
 
 export default function Layout({ children }: { children: ReactNode }) {
-  const routes = ["/"];
-  const route = usePathname();
+  const pathname = usePathname();
   return (
     <>
-      {isPrivateRoute(route as string, routes) && <Navbar />}
-      {isPrivateRoute(route as string, routes) ? (
-        <main className="relative flex flex-row-reverse items-start justify-center overflow-hidden grow">
-          {children}
-        </main>
-      ) : (
-        children
-      )}
-      {isPrivateRoute(route as string, routes) && <Footer />}
+      <Navbar />
+      <main className="relative flex flex-col items-start grow overflow-auto overflow-x-hidden">
+        {pathname === "/local" && <PlayingView />}
+        {children}
+      </main>
+      {pathname === "/local" && <Controls />}
     </>
   );
 }

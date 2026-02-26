@@ -21,7 +21,7 @@ export default function MusicCard({
       className={`bg-transparent flex items-center gap-2 rounded-sm w-63 ${className}`}
     >
       <Image
-        className="size-[2.8rem]! aspect-square rounded-[0.2rem] border-1 border-dark-400"
+        className="size-[2.8rem]! aspect-square rounded-[0.2rem] shadow-[0px_0px_1px_0px] shadow-dark-100"
         src={imgSrc}
         alt={title}
       />

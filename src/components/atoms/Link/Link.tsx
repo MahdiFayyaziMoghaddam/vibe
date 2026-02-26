@@ -18,20 +18,15 @@ export default function Link({ href, children, className = "" }: ILinkProps) {
     e.preventDefault();
     e.currentTarget.blur();
 
-    if (!window.document.startViewTransition) {
-      router.push(href);
-      return;
-    }
+    if (!window.document.startViewTransition) return router.push(href);
 
-    window.document.startViewTransition(() => {
-      router.push(href);
-    });
+    window.document.startViewTransition(() => router.push(href));
   };
   return (
     <L
       href={href}
-      onClick={(e) => handle(e)}
-      className={`text-[0.85rem] text-dark-200 hover: hover:underline underline-offset-[10%] transition-colors duration-200 active:text-primary max-sm:underline ${className}`}
+      onClick={handle}
+      className={`text-[0.85rem] text-dark-200 hover:underline underline-offset-[18%] transition-colors duration-200 active:text-primary ${className}`}
     >
       {children}
     </L>

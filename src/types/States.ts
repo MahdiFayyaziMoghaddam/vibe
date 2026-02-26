@@ -1,14 +1,17 @@
 import { AudioMetadata } from "./AudioMetadata";
+import { Repeat } from "./Repeat";
 
 export interface States {
   isPlaying: boolean;
   allMusics: AudioMetadata[];
-  musicIndex: number;
+  musicID: number | null;
   allFavored: AudioMetadata[];
   allQueue: AudioMetadata[];
   shuffle: boolean;
-  repeat: "none" | "one" | "all";
+  repeat: Repeat;
   volume: number;
   preVolume: number;
   currentTime: number;
+  showPlayingView: boolean;
+  playAfterChange: boolean;
 }

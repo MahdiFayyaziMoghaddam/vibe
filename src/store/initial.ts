@@ -3,12 +3,14 @@ import { States } from "@/types/States";
 export const initialStates: States = {
   isPlaying: false,
   allMusics: [],
-  musicIndex: 0,
+  musicID: null,
   allFavored: [],
   allQueue: [],
   repeat: "none",
   shuffle: false,
-  volume: 100,
-  preVolume: 100,
+  volume: 50,
+  preVolume: 50,
   currentTime: 0,
+  showPlayingView: false,
+  playAfterChange: false,
 };
